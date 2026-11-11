@@ -148,8 +148,8 @@ test('Tier 1: Feature Coverage (R1–R5)', async (t) => {
     }
   });
 
-  await t.test('R2.3: 100% corpus coverage across all 413 terms', async () => {
-    assert.strictEqual(terms.length, 413, 'Total terms count must be exactly 413');
+  await t.test('R2.3: 100% corpus coverage across all 792 terms', async () => {
+    assert.strictEqual(terms.length, 792, 'Total terms count must be exactly 792');
 
     const fallbackModule = await tryLoadModule<{
       getFallbackScriptForTerm?: (t: Term) => TermFallbackScript;
