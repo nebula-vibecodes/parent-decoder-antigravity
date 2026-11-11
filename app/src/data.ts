@@ -1,4 +1,7 @@
 import { expansionTerms } from './termsExpansion'
+import { currentTerms } from './termsCurrent'
+import { currentTerms2 } from './termsCurrent2'
+import { currentTerms3 } from './termsCurrent3'
 
 export type Concern = 'harmless' | 'discuss' | 'attention'
 export type Category =
@@ -35,7 +38,7 @@ export const terms: Term[] = [
     "aliases": [
       "nocap",
       "no 🧢",
-      "cap"
+      "no cap fr"
     ],
     "plainMeaning": "Honestly; I’m not exaggerating.",
     "summary": "Emphasizes that something is true or sincere.",
@@ -166,8 +169,9 @@ export const terms: Term[] = [
     "aliases": [
       "💀",
       "skull",
-      "dead",
-      "i’m dead"
+      "i’m dead",
+      "im dead",
+      "i’m so dead"
     ],
     "plainMeaning": "That’s hilarious, awkward, or unbelievable.",
     "summary": "A visual form of “I’m dead,” most often reacting to humor.",
@@ -191,12 +195,12 @@ export const terms: Term[] = [
       "gyaat",
       "god damn"
     ],
-    "plainMeaning": "A loud exclamation of surprise, usually a meme reaction.",
-    "summary": "A stretched-out “god damn” that spread through streams and short video; often a reaction to anything surprising, sometimes a comment on someone’s body.",
+    "plainMeaning": "A loud, stretched-out reaction—often to someone’s body, and often just a nonsense meme.",
+    "summary": "Started as a stretched “god damn,” usually aimed at someone’s backside. Many kids now yell it at anything, or at nothing, because the sound itself became the joke.",
     "interpretations": [
-      "A meme-style exclamation of surprise at almost anything.",
+      "A comment about someone’s curves, which can be objectifying even when played as a joke.",
       "A hype noise younger speakers repeat mostly because it sounds funny.",
-      "A comment about someone’s curves, which can be objectifying."
+      "A meme-style exclamation of surprise at almost anything."
     ],
     "example": "“gyatt the way that combo ended the round”",
     "contextClues": "Stream chat and joke context is the norm, and plenty of kids use it with no meaning attached at all. Aimed at a real person, it can land as unwanted.",
@@ -254,14 +258,16 @@ export const terms: Term[] = [
     "slug": "mid",
     "aliases": [
       "mid af",
-      "midd"
+      "midd",
+      "mids"
     ],
     "plainMeaning": "Mediocre or disappointing.",
-    "summary": "A blunt way to say something did not live up to the hype.",
+    "summary": "A blunt way to say something did not live up to the hype. In drug talk, “mids” can mean lower-grade cannabis.",
     "interpretations": [
       "Average quality rather than terrible.",
       "Dismissive criticism of music, food, games, or style.",
-      "Intentional teasing when friends disagree about taste."
+      "Intentional teasing when friends disagree about taste.",
+      "“Mids” can also mean lower-grade cannabis, usually when people are talking about buying or smoking."
     ],
     "example": "“Everyone hyped that movie, but it was mid.”",
     "contextClues": "Usually opinionated but low-stakes. Directed at a person or their work, it can feel unkind.",
@@ -473,22 +479,23 @@ export const terms: Term[] = [
     "aliases": [
       "crashing out",
       "crashed out",
-      "crashout"
+      "crashout",
+      "a crashout"
     ],
-    "plainMeaning": "Fall asleep from exhaustion—or, in other contexts, lose control emotionally.",
-    "summary": "Two very different everyday uses. Most often it simply means going to sleep, hard and early. It can also describe an intense emotional reaction, which may be dramatic joking or genuine escalation.",
+    "plainMeaning": "Lose emotional control—snap, spiral, or act recklessly. Older use can mean falling asleep.",
+    "summary": "In current teen speech, crashing out means an angry, panicked, or overwhelmed outburst. It can be a joke about a minor annoyance or a real loss of control. “Crash” by itself, or “crashed out on the couch,” can still mean falling asleep.",
     "interpretations": [
-      "Falling asleep from tiredness: “I’m gonna crash out early tonight.”",
-      "Sleeping somewhere casually: “I crashed out on the couch.”",
-      "Exaggerated frustration: “I’m about to lose it.”",
-      "An angry outburst or impulsive decision, which in some contexts could cause real consequences."
+      "A joke about overreacting: “I’m gonna crash out if this line doesn’t move.”",
+      "A real emotional blow-up, shutdown, or impulsive decision.",
+      "Calling someone a “crashout” means they lose their temper easily.",
+      "Less often now, falling asleep hard: “I crashed out on the couch.”"
     ],
-    "example": "“practice wiped me out, I’m about to crash out” / “if they cancel again I might crash out”",
-    "contextClues": "Mentions of being tired, late nights, naps, or a couch or bed point to sleep. Anger words, conflict, or laughing hyperbole point to the emotional meaning; specific threats, plans, or escalating behavior deserve a gentle, direct check-in.",
-    "opener": "“When you say ‘crash out,’ do you mean you’re exhausted—or is something getting to you?”",
+    "example": "“if they cancel again I might crash out” / “he’s such a crashout over small stuff”",
+    "contextClues": "Anger, conflict, all-caps, or “I’m about to” usually mean the emotional sense. Beds, naps, and “early tonight” point to sleep. Threats, property damage, or a pattern of blow-ups deserve a calm, direct check-in.",
+    "opener": "“When you say ‘crash out,’ are you joking—or is something actually getting to you?”",
     "category": "Mental Well-being",
     "concern": "attention",
-    "reviewed": "September 2026"
+    "reviewed": "November 2026"
   },
   {
     "term": "fanum tax",
@@ -540,7 +547,8 @@ export const terms: Term[] = [
     "term": "periodt",
     "slug": "periodt",
     "aliases": [
-      "and thats on period"
+      "and that's on periodt",
+      "periodt."
     ],
     "plainMeaning": "End of discussion; that’s final.",
     "summary": "Adds confidence or finality to a statement.",
@@ -562,7 +570,9 @@ export const terms: Term[] = [
     "aliases": [
       "🧢",
       "cap emoji",
-      "blue cap"
+      "blue cap",
+      "cap",
+      "that's cap"
     ],
     "plainMeaning": "That sounds like a lie or an exaggeration.",
     "summary": "A visual shorthand for “cap,” meaning something seems untrue.",
@@ -911,7 +921,8 @@ export const terms: Term[] = [
     "interpretations": [
       "Genuine admiration for honesty or confidence.",
       "Agreement with a bold opinion: “based take.”",
-      "Sometimes ironic, praising something absurd on purpose."
+      "Sometimes ironic, praising something absurd on purpose.",
+      "In some political corners, “based” signals agreement with edgy or reactionary views. The rest of the conversation shows whether it is just a compliment."
     ],
     "example": "“She told the coach the drills were pointless. Based.”",
     "contextClues": "Usually light approval. Occasionally used in online spaces with stronger political undertones—the surrounding conversation shows which it is.",
@@ -1013,8 +1024,8 @@ export const terms: Term[] = [
     "slug": "fyp",
     "aliases": [
       "for you page",
-      "for you",
-      "foryoupage"
+      "foryoupage",
+      "fyp hashtag"
     ],
     "plainMeaning": "The For You Page—TikTok’s main personalized feed.",
     "summary": "Refers to TikTok’s algorithmic feed, or the hope that a video lands on many people’s feeds.",
@@ -2644,7 +2655,8 @@ export const terms: Term[] = [
     "interpretations": [
       "Genuine commitment: “I have to lock in for finals.”",
       "A joke about briefly focusing after procrastinating.",
-      "Hyping up a friend before a big moment."
+      "Hyping up a friend before a big moment.",
+      "In dating, “locked in” can mean a relationship feels official or committed."
     ],
     "example": "“No games this weekend, I need to lock in for the SAT.”",
     "contextClues": "Usually a positive, self-motivating phrase. If it’s always said but never happens, that’s just normal teen procrastination with better branding.",
@@ -2735,7 +2747,8 @@ export const terms: Term[] = [
     "interpretations": [
       "Innocent self-improvement: better hair, skincare, fitness.",
       "Meme exaggeration: “I’m looksmaxxing by drinking water.”",
-      "Harsh appearance-ranking culture that can feed body-image anxiety."
+      "Harsh appearance-ranking culture that can feed body-image anxiety.",
+      "“Hardmaxxing” can mean extreme or unsafe ideas, including unsupervised substances, self-injury, or pressure toward surgery. Ask what they actually mean before assuming."
     ],
     "example": "“He’s been looksmaxxing all summer—new haircut, gym, the works.”",
     "contextClues": "The word alone is often a joke. Worth a calm check-in if it comes with self-criticism, rating people’s faces, or content from communities built around appearance judgment.",
@@ -2752,19 +2765,19 @@ export const terms: Term[] = [
       "dirty clanker",
       "clanka"
     ],
-    "plainMeaning": "A joking insult for robots and AI.",
-    "summary": "From Star Wars slang for battle droids; now a mock-slur kids direct at AI chatbots, robot vacuums, and delivery bots.",
+    "plainMeaning": "A joking insult for robots and AI, modeled on the shape of a slur.",
+    "summary": "From Star Wars slang for battle droids. Kids aim it at chatbots, robot vacuums, and delivery bots. The joke copies the rhythm of a racial slur, which some people find uncomfortable even when the target is a machine.",
     "interpretations": [
       "Ironic hostility toward AI: “the clanker took my job.”",
-      "A joke about robot machines misbehaving.",
-      "Playful roleplay of a future robot uprising."
+      "A joke about a robot or chatbot misbehaving.",
+      "Edgy humor that borrows the sound of a human slur. Worth a conversation if it slides from machines onto people."
     ],
     "example": "“The robot vacuum ate my charger cable. Stupid clanker.”",
-    "contextClues": "It’s a deliberate parody of prejudice language aimed at machines rather than people—the joke is treating AI like a rival group. Because it borrows that style on purpose, how it lands depends on the group and the tone.",
-    "opener": "“Is ‘clanker’ just your word for when the AI or the vacuum does something dumb?”",
+    "contextClues": "Aimed at software or a gadget, it is usually a meme. Repeated “us versus them” talk, or using the same tone about real groups of people, is the part to ask about.",
+    "opener": "“When you say ‘clanker,’ are you joking about the AI—or is that word showing up about people too?”",
     "category": "Social Media Culture",
-    "concern": "harmless",
-    "reviewed": "September 2026"
+    "concern": "discuss",
+    "reviewed": "November 2026"
   },
   {
     "term": "type shi",
@@ -2881,8 +2894,8 @@ export const terms: Term[] = [
       "ts pmo",
       "this ts"
     ],
-    "plainMeaning": "Short for “this”—used to react to something with disbelief or annoyance.",
-    "summary": "A clipped, stylized spelling of “this,” usually reacting to something absurd, annoying, or unbelievable.",
+    "plainMeaning": "Short for “this” or “this shit”—a reaction of disbelief or annoyance.",
+    "summary": "A clipped spelling, usually of “this shit,” reacting to something absurd, annoying, or unbelievable.",
     "interpretations": [
       "Reaction to something ridiculous: “ts is crazy.”",
       "Often stacked: “ts pmo” = “this annoys me.”",
@@ -3209,7 +3222,7 @@ export const terms: Term[] = [
     "aliases": [
       "bozo behavior",
       "certified bozo",
-      "🤡"
+      "total bozo"
     ],
     "plainMeaning": "A clown; someone who did something foolish.",
     "summary": "Calling someone a fool for a bad take, a mistake, or embarrassing behavior—often with the clown emoji.",
@@ -5164,13 +5177,15 @@ export const terms: Term[] = [
       "mdma",
       "ecstasy",
       "molly drug",
-      "roll on molly"
+      "roll on molly",
+      "molotov"
     ],
     "plainMeaning": "A person’s name—or a common name for MDMA.",
-    "summary": "In party context, ‘Molly’ often refers to a psychoactive drug, though it remains an ordinary name.",
+    "summary": "In party context, ‘Molly’ often refers to MDMA, though it remains an ordinary name. In shooter games, the same word is a fire grenade.",
     "interpretations": [
       "A person named Molly.",
       "MDMA or a substance sold as MDMA.",
+      "In shooters, a “molly” is a fire grenade (molotov), not a drug.",
       "Music or cultural references that mention the drug without indicating personal use."
     ],
     "example": "“The message said someone was bringing molly to the festival.”",
@@ -5608,7 +5623,7 @@ export const terms: Term[] = [
       "abt that",
       "abt it"
     ],
-    "plainMeaning": "About.",
+    "plainMeaning": "Short for “about.”",
     "summary": "Pure spelling shorthand, most often inside phrases like “dw abt it” or “what abt you.” It carries no meaning of its own.",
     "interpretations": [
       "A shortened “about.”",
@@ -5702,8 +5717,8 @@ export const terms: Term[] = [
     "summary": "A strong expression of being thrown off by something, from a bad grade to a friend’s behavior. Frequently hyperbolic, but it does signal that something landed badly.",
     "interpretations": [
       "“That really annoyed or hurt me.”",
-      "Exaggerated reaction to something minor.",
-      "Genuine upset about being treated unfairly."
+      "“You’ve got the wrong idea about me” or “don’t play with me.”",
+      "Exaggerated reaction to something minor, or genuine upset about being treated unfairly."
     ],
     "example": "“she told everyone what i said, that gmfu”",
     "contextClues": "The trigger matters more than the phrase. Repeated use about the same person or group may be worth a longer conversation.",
@@ -5769,9 +5784,9 @@ export const terms: Term[] = [
     "plainMeaning": "A joking nickname for a vape pen.",
     "summary": "A pun on “pen” and “Benjamin Franklin,” spread through memes and stream chat. The humor is the point, and it appears constantly in jokes by people who don’t vape.",
     "interpretations": [
-      "A meme nickname for a vape pen.",
-      "Part of a running internet joke rather than a real reference to a device.",
-      "Occasionally a coded way to mention a vape in a chat."
+      "A meme nickname for a real vape pen, nicotine or cannabis.",
+      "A joke people repeat even when nobody is actually vaping.",
+      "A coded or cute way to mention a device in a chat."
     ],
     "example": "“he pulled out the penjamin franklin in the middle of class 💀”",
     "contextClues": "Meme framing and laughing emojis are typical. Talk about buying, sharing, or hiding a device is a different signal than repeating a joke.",
@@ -6685,16 +6700,16 @@ export const terms: Term[] = [
       "got beamed",
       "getting beamed"
     ],
-    "plainMeaning": "Had a game account hacked or tricked out of valuable items.",
-    "summary": "Common in Roblox and similar games, usually after a phishing link, a fake trade, or sharing a login.",
+    "plainMeaning": "Got shot with perfect accuracy—or, on Roblox, had rare items stolen.",
+    "summary": "In shooters, “beamed” means someone deleted you instantly with accurate fire. On Roblox, “got beamed” means a thief took limited items after a scam trade, a fake gift, or a login trick.",
     "interpretations": [
-      "Someone's account was compromised and items or currency stolen.",
-      "Exaggerating a bad trade.",
-      "Warning friends about a scam."
+      "A shooter compliment or complaint: “he beamed me across the map.”",
+      "A Roblox account lost limited items to a scammer.",
+      "A warning to friends not to click trade links or share logins."
     ],
-    "example": "“bro i got beamed, all my limiteds are gone”",
-    "contextClues": "Usually a frustrating but low-risk loss. Useful moments to talk about passwords, two-factor login, and not clicking trade links.",
-    "opener": "“That's really annoying—do you know how they got in? Want to secure the account together?”",
+    "example": "“he beamed me before I even saw him” / “bro i got beamed, all my limiteds are gone”",
+    "contextClues": "Guns, rounds, and “across the map” mean the shooter sense. Limiteds, Robux, trades, or “don’t click that” mean theft. Item theft is a good moment to turn on two-factor login and stop sharing passwords. It is not a reason to click more links to “get them back.”",
+    "opener": "“Was that a game moment, or did someone actually get into the account?”",
     "category": "Gaming & Streaming",
     "concern": "discuss",
     "reviewed": "September 2026"
@@ -6782,8 +6797,8 @@ export const terms: Term[] = [
     "contextClues": "Usually banter. Repeated use against one person, or a teen using it about themselves often, may connect to appearance worries.",
     "opener": "“Do people say ‘chopped’ as a joke, or does it ever sting?”",
     "category": "General slang",
-    "concern": "harmless",
-    "reviewed": "September 2026"
+    "concern": "discuss",
+    "reviewed": "November 2026"
   },
   {
     "term": "tweaking",
@@ -6793,19 +6808,19 @@ export const terms: Term[] = [
       "you're tweaking",
       "ur tweaking"
     ],
-    "plainMeaning": "Acting irrational, overreacting, or saying something ridiculous.",
-    "summary": "Common everyday slang, like “you're crazy.” It originally related to drug use, but teens almost always use it to mean overreacting.",
+    "plainMeaning": "Acting irrational, overreacting, or—less often—visibly affected by a stimulant.",
+    "summary": "Teens almost always mean “you’re being ridiculous.” The older meaning describes agitated behavior from stimulant use. Context decides which one it is.",
     "interpretations": [
       "“You're tweaking” — you're being unreasonable.",
-      "Describing someone acting strangely.",
-      "Rarely, a literal drug-related meaning."
+      "Describing someone acting strangely or dramatically.",
+      "Occasionally, agitated behavior tied to stimulant use."
     ],
     "example": "“you're tweaking, it was not that bad”",
-    "contextClues": "Almost always casual. Only consider other meanings if paired with clear substance references.",
+    "contextClues": "A reply to an opinion is almost always the “you’re overreacting” sense. Pair it with substances, all-nighters, or physical symptoms before reading it as drug slang.",
     "opener": "“Who was tweaking—what happened?”",
     "category": "General slang",
-    "concern": "harmless",
-    "reviewed": "September 2026"
+    "concern": "discuss",
+    "reviewed": "November 2026"
   },
   {
     "term": "say less",
@@ -6877,9 +6892,11 @@ export const terms: Term[] = [
       "my bad"
     ],
     "plainMeaning": "My bad—a quick apology.",
-    "summary": "A casual way to admit a small mistake.",
+    "summary": "A casual way to admit a small mistake without making a big deal of it.",
     "interpretations": [
-      "Apologizing for a typo, lateness, or misunderstanding."
+      "Apologizing for a typo, lateness, or misunderstanding.",
+      "Taking the blame in a game or group chat.",
+      "A low-stakes sorry that may or may not include a real fix."
     ],
     "example": "“mb i didn't see ur text”",
     "contextClues": "Everyday and friendly.",
@@ -6916,7 +6933,9 @@ export const terms: Term[] = [
     "plainMeaning": "Let me know.",
     "summary": "Asking someone to follow up with an answer or update.",
     "interpretations": [
-      "Requesting a reply about plans or information."
+      "Requesting a reply about plans or information.",
+      "Leaving a decision open: “lmk what you want to do.”",
+      "A polite close that still expects an answer."
     ],
     "example": "“lmk if you're coming”",
     "contextClues": "Everyday usage.",
@@ -7013,7 +7032,7 @@ export const terms: Term[] = [
   }
 ]
 
-terms.push(...expansionTerms)
+terms.push(...expansionTerms, ...currentTerms, ...currentTerms2, ...currentTerms3)
 
 export const categories: Array<'All terms' | Category> = [
   'All terms',

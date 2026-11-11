@@ -20,7 +20,7 @@ npm run preview
 
 - Home with live term and whole-message search
 - Local whole-message decoder with copyable summaries
-- Filterable, URL-persisted library with 413 detailed guides
+- Filterable, URL-persisted library with 792 detailed guides
 - Term pages with meanings, examples, origins, context, and conversation guidance
 - Conversation starters and browser-local saved terms/messages
 - Suggestion and copy-only feedback drafts

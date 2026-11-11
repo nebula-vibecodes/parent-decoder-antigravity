@@ -398,11 +398,11 @@ test('Challenger M4_1: TermPage Button State & Fallback Script Corpus Empirical 
   });
 
   // ═══════════════════════════════════════════════════════════
-  // SECTION 4: Exhaustive Corpus Stress Test (All 413 Terms)
+  // SECTION 4: Exhaustive Corpus Stress Test (All 792 Terms)
   // ═══════════════════════════════════════════════════════════
 
-  await t.test('4.1: Exhaustive verification across all 413 terms in data.ts', () => {
-    assert.strictEqual(terms.length, 413, 'Total terms in dataset must be exactly 413');
+  await t.test('4.1: Exhaustive verification across all 792 terms in data.ts', () => {
+    assert.strictEqual(terms.length, 792, 'Total terms in dataset must be exactly 792');
 
     let processedCount = 0;
     const errors: string[] = [];
@@ -457,7 +457,7 @@ test('Challenger M4_1: TermPage Button State & Fallback Script Corpus Empirical 
       if (allText.includes('null')) errors.push(`Term ${term.slug}: contains 'null'`);
     }
 
-    assert.strictEqual(processedCount, 413, 'Must have processed all 413 terms');
+    assert.strictEqual(processedCount, 792, 'Must have processed all 792 terms');
     assert.deepStrictEqual(errors, [], `Corpus verification must have 0 errors, got: ${errors.slice(0, 5).join('; ')}`);
   });
 

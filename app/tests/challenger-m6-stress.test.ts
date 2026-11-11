@@ -313,8 +313,8 @@ test('Challenger M6: Comprehensive Adversarial Coverage Hardening (R1–R5)', as
   // ───────────────────────────────────────────────────────────
   // Domain 2: R2 Contextual Fallback Dialogue Scripts
   // ───────────────────────────────────────────────────────────
-  await t.test('2.1: R2 100% Corpus Coverage Across All 413 Terms', () => {
-    assert.strictEqual(terms.length, 413, 'Must have exactly 413 terms in corpus');
+  await t.test('2.1: R2 100% Corpus Coverage Across All 792 Terms', () => {
+    assert.strictEqual(terms.length, 792, 'Must have exactly 792 terms in corpus');
 
     let totalDialogueTurns = 0;
     for (const term of terms) {
@@ -336,7 +336,7 @@ test('Challenger M6: Comprehensive Adversarial Coverage Hardening (R1–R5)', as
       }
       totalDialogueTurns += script.dialogue.length;
     }
-    assert.ok(totalDialogueTurns >= 413 * 5, 'Every term generated at least 5 turns');
+    assert.ok(totalDialogueTurns >= 792 * 5, 'Every term generated at least 5 turns');
   });
 
   await t.test('2.2: R2 Marquee Terms Curated Quality & Slug Lookups', () => {

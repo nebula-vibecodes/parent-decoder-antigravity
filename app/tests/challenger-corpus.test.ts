@@ -21,7 +21,7 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
   // 1. Corpus Size & Export Verification
   // ─────────────────────────────────────────────────────────────
   await t.test('1.1: Total term count and expansion integrity', () => {
-    assert.strictEqual(terms.length, 413, `Expected exactly 413 terms in data.ts, found ${terms.length}`);
+    assert.strictEqual(terms.length, 792, `Expected exactly 792 terms in data.ts, found ${terms.length}`);
     assert.ok(expansionTerms.length > 0, `expansionTerms should not be empty, found ${expansionTerms.length}`);
     assert.strictEqual(
       terms.length,
@@ -39,9 +39,9 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
   });
 
   // ─────────────────────────────────────────────────────────────
-  // 2. Comprehensive 413-Term Empirical Verification
+  // 2. Comprehensive 792-Term Empirical Verification
   // ─────────────────────────────────────────────────────────────
-  await t.test('2.1: 100% Corpus Coverage across all 413 terms', () => {
+  await t.test('2.1: 100% Corpus Coverage across all 792 terms', () => {
     let checkedCount = 0;
     const failures: { slug: string; reason: string }[] = [];
 
@@ -134,7 +134,7 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
       }
     }
 
-    assert.strictEqual(checkedCount, 413, `Expected to test 413 terms, checked ${checkedCount}`);
+    assert.strictEqual(checkedCount, 792, `Expected to test 792 terms, checked ${checkedCount}`);
     if (failures.length > 0) {
       assert.fail(`Corpus verification failed on ${failures.length} issues:\n` + JSON.stringify(failures.slice(0, 10), null, 2));
     }
