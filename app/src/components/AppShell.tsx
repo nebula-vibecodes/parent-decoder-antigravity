@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { ArrowRight, Bookmark, Check, ChevronRight, Heart, LockKeyhole, Menu, MessageCircle, Moon, Search, ShieldCheck, Sun, X } from 'lucide-react'
-import { concernLabel, searchTerms, type Term } from '../data'
+import { aliasPreview, alsoCalled, concernLabel, matchedAlias, searchTerms, seeAlsoTerms, type Term } from '../data'
 import { useApp } from '../store'
 
 export function Logo() {
@@ -97,7 +97,10 @@ export function SearchPalette() {
       <div className="search-modal-input"><Search size={21} /><input ref={inputRef} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search a word, emoji, or meaning…" onKeyDown={(e) => { if (e.key === 'Enter' && results[0]) go(results[0].slug) }} /><button className="icon-button" onClick={closeSearch} aria-label="Close search"><X size={19} /></button></div>
       <div className="search-modal-results">
         <p className="mono-label">{query ? `${results.length} quick matches` : 'Popular right now'}</p>
-        {results.map((item) => <button key={item.slug} onClick={() => go(item.slug)}><span className={item.category === 'Emojis & Symbols' ? 'emoji-term' : ''}>{item.term}</span><span>{item.plainMeaning}</span><ArrowRight size={17} /></button>)}
+        {results.map((item) => {
+          const alias = matchedAlias(item, query)
+          return <button key={item.slug} onClick={() => go(item.slug)}><span className={item.category === 'Emojis & Symbols' ? 'emoji-term' : ''}>{item.term}</span><span>{alias ? `Also called “${alias}”` : item.plainMeaning}</span><ArrowRight size={17} /></button>
+        })}
         {!results.length && <div className="search-empty"><p>No exact match yet.</p><Link to="/suggest" onClick={closeSearch}>Suggest “{query}” <ArrowRight size={15} /></Link></div>}
       </div>
       <div className="search-modal-foot"><LockKeyhole size={13} /> Searches are not saved or sent anywhere.</div>
@@ -115,6 +118,17 @@ export function ConcernChip({ concern }: { concern: Term['concern'] }) {
   return <span className={`concern concern-${concern}`}>{concern === 'harmless' && <Check size={12} />}{concernLabel[concern]}</span>
 }
 
+export function TermAliases({ item, compact = false }: { item: Term; compact?: boolean }) {
+  const names = compact ? aliasPreview(item, 3) : alsoCalled(item)
+  const related = compact ? [] : seeAlsoTerms(item)
+  if (!names.length && !related.length) return null
+  if (compact) return <p className="term-card-aliases">Also called {names.join(', ')}</p>
+  return <div className="also-called">
+    {names.length > 0 && <div><span className="mono-label">Also called</span><ul className="alias-chips">{names.map((name) => <li key={name}>{name}</li>)}</ul></div>}
+    {related.length > 0 && <div><span className="mono-label">See also</span><ul className="alias-chips see-also-chips">{related.map((term) => <li key={term.slug}><Link to={`/term/${term.slug}`}>{term.term}</Link></li>)}</ul></div>}
+  </div>
+}
+
 export function TermCard({ item, compact = false }: { item: Term; compact?: boolean }) {
   const { savedTerms, toggleTerm } = useApp()
   const saved = savedTerms.includes(item.slug)
@@ -122,6 +136,7 @@ export function TermCard({ item, compact = false }: { item: Term; compact?: bool
     <Link to={`/term/${item.slug}`} className="term-card-main">
       <div className="term-card-meta"><span>{item.category}</span><ConcernChip concern={item.concern} /></div>
       <h3 className={item.category === 'Emojis & Symbols' ? 'emoji-term' : ''}>{item.term}</h3>
+      <TermAliases item={item} compact />
       <p>{item.plainMeaning}</p>
       <span className="text-link">Read the guide <ArrowRight size={15} /></span>
     </Link>

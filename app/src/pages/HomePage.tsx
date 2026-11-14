@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { ArrowRight, BookOpen, Check, HeartHandshake, LockKeyhole, MessageCircleHeart, Search, ShieldCheck, Sparkles, X } from 'lucide-react'
-import { categories, decodeMessage, findTerm, searchTerms, terms, type Term } from '../data'
+import { categories, decodeMessage, findTerm, heardAs, matchedAlias, searchTerms, terms, type Term } from '../data'
 import { ConcernChip, SupportResources, TermCard } from '../components/AppShell'
 
 export function DecodeResults({ text }: { text: string }) {
@@ -10,10 +10,13 @@ export function DecodeResults({ text }: { text: string }) {
   return <div className="decode-results">
     <div className="decode-results-heading"><span className="mono-label">Found in your message</span><span>{matches.length} {matches.length === 1 ? 'term' : 'terms'}</span></div>
     <p className="decoded-message">“{text}”</p>
-    {matches.map((item) => <Link to={`/term/${item.slug}`} key={item.slug} className="decode-match">
-      <div><span className={item.category === 'Emojis & Symbols' ? 'decode-term emoji-term' : 'decode-term'}>{item.term}</span><ConcernChip concern={item.concern} /></div>
-      <p>{item.plainMeaning}</p><ArrowRight size={18} />
-    </Link>)}
+    {matches.map((item) => {
+      const heard = heardAs(item, text)
+      return <Link to={`/term/${item.slug}`} key={item.slug} className="decode-match">
+        <div><span className={item.category === 'Emojis & Symbols' ? 'decode-term emoji-term' : 'decode-term'}>{item.term}</span><ConcernChip concern={item.concern} /></div>
+        <p>{item.plainMeaning}</p>{heard && <span className="decode-heard">Also called “{heard}”</span>}<ArrowRight size={18} />
+      </Link>
+    })}
     <p className="decode-note"><Sparkles size={14} /> These are possible readings, not verdicts. Tone and relationship still shape the meaning.</p>
   </div>
 }
@@ -45,7 +48,10 @@ export default function HomePage() {
           <label htmlFor="home-search">What did you see or hear?</label>
           <div className="hero-search"><Search size={20} /><input id="home-search" value={query} maxLength={200} onChange={(e) => setQuery(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') submit() }} placeholder="A word, emoji, or whole message" autoComplete="off" />{query && <button onClick={() => setQuery('')} aria-label="Clear search"><X size={17} /></button>}</div>
           <div className="decode-modes" role="group" aria-label="Decoding mode">{(['auto', 'term', 'message'] as const).map((item) => <button key={item} aria-pressed={mode === item} onClick={() => setMode(item)}>{item === 'auto' ? 'Auto detect' : item === 'term' ? 'Single term' : 'Whole message'}</button>)}</div>
-          {query.trim() && <div className="home-results" aria-live="polite">{isMessage ? <DecodeResults text={query} /> : results.length ? results.map((item) => <Link to={`/term/${item.slug}`} key={item.slug}><strong>{item.term}</strong><span>{item.plainMeaning}</span><ArrowRight size={16} /></Link>) : <DecodeResults text={query} />}</div>}
+          {query.trim() && <div className="home-results" aria-live="polite">{isMessage ? <DecodeResults text={query} /> : results.length ? results.map((item) => {
+            const alias = matchedAlias(item, query)
+            return <Link to={`/term/${item.slug}`} key={item.slug}><strong>{item.term}</strong><span>{alias ? `Also called “${alias}”` : item.plainMeaning}</span><ArrowRight size={16} /></Link>
+          }) : <DecodeResults text={query} />}</div>}
           {!query && <div className="example-searches"><span>Try one</span>{['no cap', '💀', 'iykyk'].map((term) => <button key={term} onClick={() => { setQuery(term); setMode('term') }}>{term}</button>)}</div>}
           <p className="decoder-privacy"><LockKeyhole size={13} /> Nothing is saved automatically. Your search stays here.</p>
         </div>
@@ -62,7 +68,7 @@ export default function HomePage() {
 
     <section className="featured-guide">
       <div className="featured-inner">
-        <div className="featured-term"><p className="eyebrow">One term. More than one reading.</p><span className="featured-category">General slang</span><h2>“mid”</h2><p>Average, unimpressive, or just not worth the hype.</p><div className="featured-tags"><ConcernChip concern="harmless" /><span>Often playful</span></div><Link to="/term/mid" className="button button-light">Read the full guide <ArrowRight size={17} /></Link></div>
+        <div className="featured-term"><p className="eyebrow">One term. More than one reading.</p><span className="featured-category">General slang</span><h2>“mid”</h2><p>Average, unimpressive, or just not worth the hype.</p><div className="featured-tags"><ConcernChip concern="discuss" /><span>Often playful</span></div><Link to="/term/mid" className="button button-light">Read the full guide <ArrowRight size={17} /></Link></div>
         <div className="featured-context">
           <div><span className="step-number">01</span><section><h3>What it means</h3><p>A casual critique for something that did not live up to expectations. Between friends, it can be a joke about taste.</p></section></div>
           <div><span className="step-number">02</span><section><h3>Read the moment</h3><p>“The movie was mid” is an opinion. “Your art is mid” lands differently. Target and tone matter.</p></section></div>

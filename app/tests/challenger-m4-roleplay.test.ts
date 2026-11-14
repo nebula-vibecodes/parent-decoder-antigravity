@@ -397,13 +397,13 @@ test('Challenger M4: TermPage Button State & Roleplay Fallback Dialogue Scripts 
   });
 
   // ─────────────────────────────────────────────────────────────
-  // 4. Corpus Stress: 100% of 792 Terms Render Without Throwing
+  // 4. Corpus Stress: 100% of 617 Terms Render Without Throwing
   // ─────────────────────────────────────────────────────────────
-  await t.test('4.1: Render fallback drawer for all 792 terms without any exception', () => {
+  await t.test('4.1: Render fallback drawer for all 617 terms without any exception', () => {
     currentEngineStatus = 'unavailable';
     mockSavedAIOutputs = [];
 
-    assert.strictEqual(terms.length, 792, 'Corpus must contain 792 terms');
+    assert.strictEqual(terms.length, 617, 'Corpus must contain 617 terms');
 
     for (let i = 0; i < terms.length; i++) {
       const term = terms[i];

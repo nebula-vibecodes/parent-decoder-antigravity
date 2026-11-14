@@ -1170,10 +1170,10 @@ test('Challenger M4_2: Storage Persistence, Deduplication & Setup Guide Inclusio
   });
 
   // ═════════════════════════════════════════════════════════════
-  // Section 12: Full Corpus Sweep: 100% of all 792 Terms Fallback Script Persistence
+  // Section 12: Full Corpus Sweep: 100% of all 617 Terms Fallback Script Persistence
   // ═════════════════════════════════════════════════════════════
-  await suite.test('12. Full Corpus Sweep: All 792 Terms Fallback Script Persistence Without Error', async (t) => {
-    assert.strictEqual(terms.length, 792, 'Total terms count must be exactly 792');
+  await suite.test('12. Full Corpus Sweep: All 617 Terms Fallback Script Persistence Without Error', async (t) => {
+    assert.strictEqual(terms.length, 617, 'Total terms count must be exactly 617');
 
     let totalDialogueTurns = 0;
     let totalTips = 0;
@@ -1199,8 +1199,8 @@ test('Challenger M4_2: Storage Persistence, Deduplication & Setup Guide Inclusio
       }
     }
 
-    assert.ok(totalDialogueTurns >= 792 * 2, 'Must have at least 1584 total dialogue turns across all terms');
-    assert.strictEqual(totalTips, 792 * 3, 'Must have exactly 2,376 coaching tips across all terms');
+    assert.ok(totalDialogueTurns >= 617 * 2, 'Must have at least 1234 total dialogue turns across all terms');
+    assert.strictEqual(totalTips, 617 * 3, 'Must have exactly 1,851 coaching tips across all terms');
   });
 });
 
