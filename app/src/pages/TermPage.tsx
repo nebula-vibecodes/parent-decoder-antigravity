@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { ArrowRight, Bookmark, Check, ChevronRight, Clipboard, HeartHandshake, Info, MessageCircleHeart, MessageCircleQuestion, ShieldCheck } from 'lucide-react'
-import { ConcernChip, SupportResources, TermCard } from '../components/AppShell'
+import { ConcernChip, SupportResources, TermAliases, TermCard } from '../components/AppShell'
 import { copyText, useApp } from '../store'
 import { findTerm, terms } from '../data'
 import { RoleplayChat } from '../components/agent/RoleplayChat'
@@ -21,7 +21,7 @@ export default function TermPage() {
     : 'Practice this conversation'
   return <article className="term-page">
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/">Home</Link><ChevronRight /><Link to="/browse">Library</Link><ChevronRight /><span>{item.term}</span></nav>
-    <header className="term-hero"><div><div className="term-hero-tags"><span className="category-tag">{item.category}</span><ConcernChip concern={item.concern} /></div><h1 className={item.category === 'Emojis & Symbols' ? 'emoji-term' : ''}>{item.term}</h1><p>{item.plainMeaning}</p><span className="aliases">Also seen as: {item.aliases.length ? item.aliases.join(', ') : 'no common aliases listed'}</span></div><div className="term-actions"><button className={saved ? 'button saved-button' : 'button button-outline'} onClick={() => toggleTerm(item.slug)}><Bookmark size={17} fill={saved ? 'currentColor' : 'none'} />{saved ? 'Saved' : 'Save guide'}</button><button className="icon-button" aria-label="Copy link to this guide" onClick={async () => { await copyText(window.location.href); notify('Guide link copied') }}><Clipboard size={18} /></button></div></header>
+    <header className="term-hero"><div><div className="term-hero-tags"><span className="category-tag">{item.category}</span><ConcernChip concern={item.concern} /></div><h1 className={item.category === 'Emojis & Symbols' ? 'emoji-term' : ''}>{item.term}</h1><p>{item.plainMeaning}</p><TermAliases item={item} /></div><div className="term-actions"><button className={saved ? 'button saved-button' : 'button button-outline'} onClick={() => toggleTerm(item.slug)}><Bookmark size={17} fill={saved ? 'currentColor' : 'none'} />{saved ? 'Saved' : 'Save guide'}</button><button className="icon-button" aria-label="Copy link to this guide" onClick={async () => { await copyText(window.location.href); notify('Guide link copied') }}><Clipboard size={18} /></button></div></header>
     <section className="quick-answers" aria-label="Quick answers"><div><span>01</span><h2>What it means</h2><p>{item.summary}</p></div><div><span>02</span><h2>What changes it</h2><p>{item.contextClues}</p></div><div><span>03</span><h2>How to respond</h2><p>{item.opener}</p></div></section>
     <div className="context-banner"><Info size={20} /><p><strong>A starting point, not a verdict.</strong> Tone, age, platform, community, and relationship all shape what a phrase means in the moment.</p></div>
     <div className="term-content-layout"><div className="term-content">

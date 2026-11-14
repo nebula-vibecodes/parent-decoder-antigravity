@@ -700,7 +700,7 @@ export function generateDynamicFallbackScript(term: Partial<Term>): TermFallback
 }
 
 /**
- * Primary API: Guarantees 100% coverage across all 792 terms.
+ * Primary API: Guarantees a script for every term currently in the library.
  */
 export function getFallbackScriptForTerm(term: Term): TermFallbackScript {
   if (!term) return generateDynamicFallbackScript({})

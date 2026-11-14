@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert';
 import { terms, findTerm, type Term } from '../src/data';
-import { expansionTerms } from '../src/termsExpansion';
 import {
   getFallbackScriptForTerm,
   getConversationScript,
@@ -21,13 +20,9 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
   // 1. Corpus Size & Export Verification
   // ─────────────────────────────────────────────────────────────
   await t.test('1.1: Total term count and expansion integrity', () => {
-    assert.strictEqual(terms.length, 792, `Expected exactly 792 terms in data.ts, found ${terms.length}`);
-    assert.ok(expansionTerms.length > 0, `expansionTerms should not be empty, found ${expansionTerms.length}`);
-    assert.strictEqual(
-      terms.length,
-      (terms.length - expansionTerms.length) + expansionTerms.length,
-      'terms array must contain base terms + expansionTerms'
-    );
+    assert.strictEqual(terms.length, 617, `Expected exactly 617 terms in data.ts, found ${terms.length}`);
+    const slugs = new Set(terms.map((item) => item.slug));
+    assert.strictEqual(slugs.size, terms.length, 'every term slug must be unique');
   });
 
   await t.test('1.2: API alias and export contract check', () => {
@@ -39,9 +34,9 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
   });
 
   // ─────────────────────────────────────────────────────────────
-  // 2. Comprehensive 792-Term Empirical Verification
+  // 2. Comprehensive 617-Term Empirical Verification
   // ─────────────────────────────────────────────────────────────
-  await t.test('2.1: 100% Corpus Coverage across all 792 terms', () => {
+  await t.test('2.1: 100% Corpus Coverage across all 617 terms', () => {
     let checkedCount = 0;
     const failures: { slug: string; reason: string }[] = [];
 
@@ -134,7 +129,7 @@ test('Challenger M1_1: Empirical Corpus Verification', async (t) => {
       }
     }
 
-    assert.strictEqual(checkedCount, 792, `Expected to test 792 terms, checked ${checkedCount}`);
+    assert.strictEqual(checkedCount, 617, `Expected to test 617 terms, checked ${checkedCount}`);
     if (failures.length > 0) {
       assert.fail(`Corpus verification failed on ${failures.length} issues:\n` + JSON.stringify(failures.slice(0, 10), null, 2));
     }

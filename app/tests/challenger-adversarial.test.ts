@@ -114,7 +114,7 @@ test('Challenger M1_1: Adversarial & Extreme Edge Case Stress Suite', async (t) 
   // ─────────────────────────────────────────────────────────────
   // 4. Unique Coaching Tips per Script
   // ─────────────────────────────────────────────────────────────
-  await t.test('4.1: Coaching tips distinctness across all 792 terms', () => {
+  await t.test('4.1: Coaching tips distinctness across all 617 terms', () => {
     for (const term of terms) {
       const script = getFallbackScriptForTerm(term);
       const tip0 = script.coachingTips[0].trim();
